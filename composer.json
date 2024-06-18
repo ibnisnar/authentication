@@ -2,6 +2,13 @@
     "name": "ibnisnar/authentication",
     "description": "Tailwind scaffolding for the Laravel framework.",
     "keywords": ["laravel", "tailwind", "auth"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ibnisnar",
+            "email": "tntwisnr@gmail.com"
+        }
+    ],
     "require": {
         "php": "^8.2.0",
         "ext-json": "*",
@@ -12,7 +19,6 @@
         "symfony/console": "^7.0"
     },
     "require-dev": {
-        "inertiajs/inertia-laravel": "^1.0",
         "laravel/sanctum": "^4.0",
         "livewire/livewire": "^3.3",
         "mockery/mockery": "^1.0",
@@ -25,12 +31,23 @@
             "Ibnisnar\\Authentication\\": "src/"
         }
     },
-    "authors": [
-        {
-            "name": "ibnisnar",
-            "email": "tntwisnr@gmail.com"
+    "autoload-dev": {
+        "psr-4": {
+            "Ibnisnar\\Authentication\\Tests\\": "tests/",
+            "App\\": "stubs/app/",
+            "Database\\Factories\\": "database/factories/"
         }
-    ],
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ibnisnar\\Authentication\\AuthenticationServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
     "minimum-stability": "dev",
-    "license": "MIT",
+    "prefer-stable": true
 }
