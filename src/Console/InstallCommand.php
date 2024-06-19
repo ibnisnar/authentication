@@ -152,7 +152,7 @@ class InstallCommand extends Command implements PromptsForMissingInput
         ]);
 
         // Update Configuration...
-        $this->replaceInFile('livewire', config_path('authentication.php'));
+        $this->replaceInFile('inertia', 'livewire', config_path('authentication.php'));
 
         // NPM Packages...
         $this->updateNodePackages(function ($packages) {
