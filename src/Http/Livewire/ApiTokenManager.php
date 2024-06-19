@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Jetstream\Http\Livewire;
+namespace Ibnisnar\Authentication\Http\Livewire;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use Laravel\Jetstream\Jetstream;
+use Ibnisnar\Authentication\Authentication;
 use Livewire\Component;
 
 class ApiTokenManager extends Component
@@ -77,7 +77,7 @@ class ApiTokenManager extends Component
      */
     public function mount()
     {
-        $this->createApiTokenForm['permissions'] = Jetstream::$defaultPermissions;
+        $this->createApiTokenForm['permissions'] = Authentication::$defaultPermissions;
     }
 
     /**
@@ -97,11 +97,11 @@ class ApiTokenManager extends Component
 
         $this->displayTokenValue($this->user->createToken(
             $this->createApiTokenForm['name'],
-            Jetstream::validPermissions($this->createApiTokenForm['permissions'])
+            Authentication::validPermissions($this->createApiTokenForm['permissions'])
         ));
 
         $this->createApiTokenForm['name'] = '';
-        $this->createApiTokenForm['permissions'] = Jetstream::$defaultPermissions;
+        $this->createApiTokenForm['permissions'] = Authentication::$defaultPermissions;
 
         $this->dispatch('created');
     }
@@ -146,7 +146,7 @@ class ApiTokenManager extends Component
     public function updateApiToken()
     {
         $this->managingPermissionsFor->forceFill([
-            'abilities' => Jetstream::validPermissions($this->updateApiTokenForm['permissions']),
+            'abilities' => Authentication::validPermissions($this->updateApiTokenForm['permissions']),
         ])->save();
 
         $this->managingApiTokenPermissions = false;

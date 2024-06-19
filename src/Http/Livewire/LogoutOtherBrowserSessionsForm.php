@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Jetstream\Http\Livewire;
+namespace Ibnisnar\Authentication\Http\Livewire;
 
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Support\Carbon;
@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
-use Laravel\Jetstream\Agent;
+use Ibnisnar\Authentication\Agent;
 use Livewire\Component;
 
 class LogoutOtherBrowserSessionsForm extends Component
@@ -121,7 +121,7 @@ class LogoutOtherBrowserSessionsForm extends Component
      * Create a new agent instance from the given session.
      *
      * @param  mixed  $session
-     * @return \Laravel\Jetstream\Agent
+     * @return \Ibnisnar\Authentication\Agent
      */
     protected function createAgent($session)
     {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Jetstream\Http\Controllers\Livewire;
+namespace Ibnisnar\Authentication\Http\Controllers\Livewire;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
-use Laravel\Jetstream\Jetstream;
+use Ibnisnar\Authentication\Authentication;
 
 class PrivacyPolicyController extends Controller
 {
@@ -17,7 +17,7 @@ class PrivacyPolicyController extends Controller
      */
     public function show(Request $request)
     {
-        $policyFile = Jetstream::localizedMarkdownPath('policy.md');
+        $policyFile = Authentication::localizedMarkdownPath('policy.md');
 
         return view('policy', [
             'policy' => Str::markdown(file_get_contents($policyFile)),

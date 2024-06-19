@@ -5,7 +5,7 @@ namespace Ibnisnar\Authentication\Http\Controllers\Livewire;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
-use Ibnisnar\Authentication\Jetstream;
+use Ibnisnar\Authentication\Authentication;
 
 class TermsOfServiceController extends Controller
 {
@@ -17,7 +17,7 @@ class TermsOfServiceController extends Controller
      */
     public function show(Request $request)
     {
-        $termsFile = Jetstream::localizedMarkdownPath('terms.md');
+        $termsFile = Authentication::localizedMarkdownPath('terms.md');
 
         return view('terms', [
             'terms' => Str::markdown(file_get_contents($termsFile)),

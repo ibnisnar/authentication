@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Jetstream\Http\Livewire;
+namespace Ibnisnar\Authentication\Http\Livewire;
 
 use Livewire\Component;
 
