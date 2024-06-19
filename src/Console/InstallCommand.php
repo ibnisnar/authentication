@@ -125,7 +125,7 @@ class InstallCommand extends Command implements PromptsForMissingInput
     }
 
     /**
-     * Configure the session driver for Jetstream
+     * Configure the session driver for Authentication
      *
      * @return void
      */
@@ -172,7 +172,7 @@ class InstallCommand extends Command implements PromptsForMissingInput
 
         // Directories...
         (new Filesystem)->ensureDirectoryExists(app_path('Actions/Fortify'));
-        (new Filesystem)->ensureDirectoryExists(app_path('Actions/Jetstream'));
+        (new Filesystem)->ensureDirectoryExists(app_path('Actions/Authentication'));
         (new Filesystem)->ensureDirectoryExists(app_path('View/Components'));
         (new Filesystem)->ensureDirectoryExists(resource_path('css'));
         (new Filesystem)->ensureDirectoryExists(resource_path('markdown'));
@@ -201,7 +201,7 @@ class InstallCommand extends Command implements PromptsForMissingInput
         // Actions...
         copy(__DIR__.'/../../stubs/app/Actions/Fortify/CreateNewUser.php', app_path('Actions/Fortify/CreateNewUser.php'));
         copy(__DIR__.'/../../stubs/app/Actions/Fortify/UpdateUserProfileInformation.php', app_path('Actions/Fortify/UpdateUserProfileInformation.php'));
-        copy(__DIR__.'/../../stubs/app/Actions/Jetstream/DeleteUser.php', app_path('Actions/Jetstream/DeleteUser.php'));
+        copy(__DIR__.'/../../stubs/app/Actions/Authentication/DeleteUser.php', app_path('Actions/Authentication/DeleteUser.php'));
 
         // Components...
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/livewire/resources/views/components', resource_path('views/components'));
