@@ -9,18 +9,18 @@ use Ibnisnar\Authentication\Http\Controllers\Livewire\UserProfileController;
 use Ibnisnar\Authentication\Authentication;
 
 Route::group(['middleware' => config('authentication.middleware', ['web'])], function () {
-    if (Authentication::hasTermsAndPrivacyPolicyFeature() {
+    if (Authentication::hasTermsAndPrivacyPolicyFeature()) { // Added closing parenthesis here
         Route::get('/terms-of-service', [TermsOfServiceController::class, 'show'])->name('terms.show');
         Route::get('/privacy-policy', [PrivacyPolicyController::class, 'show'])->name('policy.show');
     }
 
     $authMiddleware = config('authentication.guard')
         ? 'auth:'.config('authentication.guard')
-        : 'auth';
+        : 'auth'; // Added semicolon here
 
     $authSessionMiddleware = config('authentication.auth_session', false)
         ? config('authentication.auth_session')
-        : null;
+        : null; // Added semicolon here
 
     Route::group(['middleware' => array_values(array_filter([$authMiddleware, $authSessionMiddleware]))], function () {
         // User & Profile...
@@ -28,7 +28,7 @@ Route::group(['middleware' => config('authentication.middleware', ['web'])], fun
 
         Route::group(['middleware' => 'verified'], function () {
             // API...
-            if (Authentication:hasApiFeatures() {
+            if (Authentication::hasApiFeatures()) {
                 Route::get('/user/api-tokens', [ApiTokenController::class, 'index'])->name('api-tokens.index');
             }
         });
