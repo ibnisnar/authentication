@@ -9,7 +9,7 @@ use Ibnisnar\Authentication\Http\Controllers\Livewire\UserProfileController;
 use Ibnisnar\Authentication\Authentication;
 
 Route::group(['middleware' => config('authentication.middleware', ['web'])], function () {
-    if (Authentication:hasTermsAndPrivacyPolicyFeature() {
+    if (Authentication::hasTermsAndPrivacyPolicyFeature() {
         Route::get('/terms-of-service', [TermsOfServiceController::class, 'show'])->name('terms.show');
         Route::get('/privacy-policy', [PrivacyPolicyController::class, 'show'])->name('policy.show');
     }
