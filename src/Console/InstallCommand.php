@@ -243,10 +243,6 @@ class InstallCommand extends Command implements PromptsForMissingInput
         copy($stubs.'/livewire/TwoFactorAuthenticationSettingsTest.php', base_path('tests/Feature/TwoFactorAuthenticationSettingsTest.php'));
         copy($stubs.'/livewire/UpdatePasswordTest.php', base_path('tests/Feature/UpdatePasswordTest.php'));
 
-        // Teams...
-        if ($this->option('teams')) {
-            $this->installLivewireTeamStack();
-        }
 
         if (! $this->option('dark')) {
             $this->removeDarkClasses((new Finder)
@@ -270,20 +266,6 @@ class InstallCommand extends Command implements PromptsForMissingInput
         $this->components->info('Livewire scaffolding installed successfully.');
 
         return true;
-    }
-
-    /**
-     * Install the Livewire team stack into the application.
-     *
-     * @return void
-     */
-    protected function installLivewireTeamStack()
-    {
-        // Directories...
-        (new Filesystem)->ensureDirectoryExists(resource_path('views/teams'));
-
-        // Other Views...
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/livewire/resources/views/teams', resource_path('views/teams'));
     }
 
     /**
